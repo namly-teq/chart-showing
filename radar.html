@@ -1,0 +1,99 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=radar&theme=dark&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQDKArgE4BuOAngQCo4DGAFtBFwCGWWAEkAzuNo5xsAIIAzBd0jQA5rADCwACYR1sdhAC2OSgBoixYrgUVYlLjmhgc9SkQC-l9LjXOdAlRrHUEwQQIAbUoJKRkLBzlmekF_SgBdH2tgeghne0pkyCEsCytYWwLctR4wD3RvIjBgYCxIECDysGr_eipBUghxethG9BTQvsJrAHoZ2HEeQRB8By4Iei5cMut9PSFmqcjy9CRYaEFTKgAxFNMAdxyAawTjAYIAVlGs6zOLq4c1HCrlgAFlBBd_KYXK93rAvmNrMhzpdVpRNPRgJIALQAI0x93Ebi0wGMIDCEFxECwEDALFhpE-3xOyP-aOoOEEmx4sAAoup9DhYAB5cAmCAALwpMAZTMRvxRAMoACUZCAYOIIMxYAARGQQNRwABkWmo1DBgn04X0gipNLpsvhzKRrNRVG00E14lc0C4LFg-kMnOMjoRP2IfzdDgAQjglowoPRYHolG58rAFJjjBgeELvRDJjpQ6NyukvFkibkZFFysEkWyqLFpMNw-g6SsqBMuTskc1Wu1Oi62z03FRaTgQyz5cRQuEa0PpgvYIxhNIogAmAB0AHZ1-ZYFvd_uAMyb48ANn3W4-e4PZ8vsFPe9PH3PmRZ1gbDib8VbxGnvwfsQK5YGusCRNe5iQdBm4fFBsHwXB17vkuipokkbipGYf4NH-ZbWJ4RBlp4ADcQA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-graph-modularity@2/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, 'dark', {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: 'Survey: Technical Issues Affecting Coding Time',
+        left: 'center'
+  },
+  legend: {
+    data: ['Issues', 'Average'],
+     orient: 'vertical',
+    left: 'right'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  radar: {
+    // shape: 'circle',
+    indicator: [
+      { name: 'Framework', max: 5 },
+      { name: 'State Management', max: 5 },
+      { name: 'Cross-browser Compatibility', max: 5 },
+      { name: 'Search Engine Optimization', max: 5 },
+      { name: 'Responsive Design & CSS Maintainability', max: 5 },
+      { name: 'Consistency in Team', max: 5 },
+      { name: 'Behavior different from the standard', max: 5 }
+    ]
+  },
+  series: [
+    {
+      name: 'Issues',
+      type: 'radar',
+      tooltip: {
+        trigger: 'item'
+      },
+      data: [
+        {
+          value: [2.72, 2.72, 3.36, 2.52, 2.36, 3.2,3.56],
+          name: 'Issues',
+        },
+        {
+          value: [2.5,2.5,2.5,2.5,2.5,2.5,2.5],
+          name: 'Average',
+        },
+      ]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
